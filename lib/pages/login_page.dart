@@ -1,5 +1,7 @@
 import 'package:carros/domain/login_service.dart';
+import 'package:carros/pages/home_page.dart';
 import 'package:carros/utils/alerts.dart';
+import 'package:carros/utils/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 
@@ -97,29 +99,12 @@ class LoginPage extends StatelessWidget {
     final ok = LoginService.login(login, senha);
 
     if(ok){
+      push(context, HomePage());
       print("Entrar na home.");
     }else{
       alert(context, "Erro", "Vacilao");
     }
 
-//    if(login.isEmpty || login.isEmpty){
-//      showDialog(context: context,
-//        builder: (context){
-//          return AlertDialog(
-//            title: Text("Erro"),
-//            content: Text("Informe corretamente o login e a senha!"),
-//            actions: <Widget>[
-//              FlatButton(
-//                child: Text("Ok"),
-//                onPressed: () {
-//                  Navigator.pop(context);
-//                },
-//              )
-//            ],
-//          );
-//        }
-//      );
-//    }
   }
 }
 
